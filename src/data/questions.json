@@ -1,0 +1,169 @@
+{
+  "questions": [
+    {
+      "question": "¿Cuál es el framework de JavaScript más popular?",
+      "options": [
+        "Angular",
+        "React",
+        "Svelte",
+        "Vue"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "¿Qué empresa inventó React?",
+      "options": [
+        "Google",
+        "Apple",
+        "Netflix",
+        "Facebook"
+      ],
+      "correctOption": 3,
+      "points": 10
+    },
+    {
+      "question": "¿Cuál es el bloque de construcción fundamental de las aplicaciones de React?",
+      "options": [
+        "Componentes",
+        "Bloques",
+        "Elementos",
+        "Efectos"
+      ],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "¿Cómo se llama la sintaxis que usamos para describir la interfaz de usuario en los componentes de React?",
+      "options": [
+        "FBJ",
+        "Babel",
+        "JSX",
+        "ES2015"
+      ],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "¿Cómo fluye naturalmente la información en las aplicaciones de React?",
+      "options": [
+        "De padres a hijos",
+        "De hijos a padres",
+        "En ambos sentidos",
+        "El desarrollador decide"
+      ],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "¿Cómo se pasa información a un componente hijo?",
+      "options": [
+        "State",
+        "Props",
+        "PropTypes",
+        "Parámetros"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "¿Cuándo se debe usar un estado derivado?",
+      "options": [
+        "Cuando el estado no debe desencadenar una re-renderización",
+        "Cuando el estado se puede sincronizar con un efecto",
+        "Cuando el estado debe ser accesible para todos los componentes",
+        "Cuando el estado puede calcularse a partir de otra variable de estado"
+      ],
+      "correctOption": 3,
+      "points": 30
+    },
+    {
+      "question": "¿Qué desencadena una re-renderización de la UI en React?",
+      "options": [
+        "Ejecutar un efecto",
+        "Pasar props",
+        "Actualizar el estado",
+        "Agregar event listeners a los elementos del DOM"
+      ],
+      "correctOption": 2,
+      "points": 20
+    },
+    {
+      "question": "¿Cuándo tocamos directamente el DOM en React?",
+      "options": [
+        "Cuando necesitamos escuchar un evento",
+        "Cuando necesitamos cambiar la UI",
+        "Cuando necesitamos agregar estilos",
+        "Casi nunca"
+      ],
+      "correctOption": 3,
+      "points": 20
+    },
+    {
+      "question": "¿En qué situación usamos una función de callback para actualizar el estado?",
+      "options": [
+        "Cuando actualizar el estado será lento",
+        "Cuando el estado actualizado tiene muchos datos",
+        "Cuando la actualización del estado debe ser más rápida",
+        "Cuando el nuevo estado depende del estado anterior"
+      ],
+      "correctOption": 3,
+      "points": 30
+    },
+    {
+      "question": "Si pasamos una función a useState, ¿cuándo se llamará esa función?",
+      "options": [
+        "En cada re-renderización",
+        "Cada vez que actualicemos el estado",
+        "Solo en la renderización inicial",
+        "La primera vez que actualicemos el estado"
+      ],
+      "correctOption": 2,
+      "points": 30
+    },
+    {
+      "question": "¿Qué hook usamos para hacer una solicitud a una API en la renderización inicial de un componente?",
+      "options": [
+        "useState",
+        "useEffect",
+        "useRef",
+        "useReducer"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "¿Qué variables deben ir en el array de dependencias de useEffect?",
+      "options": [
+        "Por lo general, ninguna",
+        "Todas nuestras variables de estado",
+        "Todas las variables de estado y props referenciadas en el efecto",
+        "Todas las variables necesarias para la limpieza"
+      ],
+      "correctOption": 2,
+      "points": 30
+    },
+    {
+      "question": "Un efecto siempre se ejecutará en la renderización inicial.",
+      "options": [
+        "Verdadero",
+        "Depende del array de dependencias",
+        "Falso",
+        "Depende del código dentro del efecto"
+      ],
+      "correctOption": 0,
+      "points": 30
+    },
+    {
+      "question": "¿Cuándo se ejecutará un efecto si no tiene un array de dependencias?",
+      "options": [
+        "Solo cuando el componente se monte",
+        "Solo cuando el componente se desmonte",
+        "La primera vez que el componente se vuelva a renderizar",
+        "Cada vez que el componente se vuelva a renderizar"
+      ],
+      "correctOption": 3,
+      "points": 20
+    }
+  ]
+}
