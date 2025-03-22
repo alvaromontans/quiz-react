@@ -44,7 +44,8 @@ body {
   margin-bottom: 4rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .error {
@@ -175,6 +176,7 @@ progress {
 .btn-option {
   width: 100%;
   text-align: left;
+  border: 1px var(--color-light) solid;
 }
 
 .btn-option.correct {
