@@ -49,12 +49,53 @@ body {
 }
 
 .app-header {
-  width: 66rem;
+  width: 100%;
   margin-bottom: 4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-title {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1;
+  text-align: center;
   cursor: pointer;
+}
+
+.toggle-switch {
+  cursor: pointer;
+  width: 75px;
+  height: 37.5px;
+  background: var(--color-primary);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  transition: background 0.3s ease;
+  margin-right: 2rem;
+}
+
+.toggle-switch input {
+  display: none;
+}
+
+.slider {
+  content: "";
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 30px;
+  height: 30px;
+  background: var(--color-secondary);
+  border-radius: 50%;
+  transition: 0.3s ease;
+}
+
+.toggle-switch.on .slider {
+  left: 5%;
 }
 
 .error {
@@ -274,37 +315,4 @@ progress {
   80% {
     background-position: 0% 50%, 50% 50%, 100% 100%;
   }
-}
-
-.toggle-switch {
-  cursor: pointer;
-  width: 75px;
-  height: 37.5px;
-  background: var(--color-primary);
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  position: relative;
-  transition: background 0.3s ease;
-}
-
-.toggle-switch input {
-  display: none;
-}
-
-.slider {
-  content: "";
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  width: 30px;
-  height: 30px;
-  background: var(--color-secondary);
-  border-radius: 50%;
-  transition: 0.3s ease;
-}
-
-.toggle-switch.on .slider {
-  left: 5%;
 }

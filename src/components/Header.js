@@ -6,8 +6,10 @@ function Header() {
 
   return (
     <header className='app-header' onClick={() => dispatch({ type: "restart" })}>
-      <img src='logo512.png' alt='React logo' />
-      <h1>Quiz React</h1>
+      <div className="header-title">
+        <img src='logo512.png' alt='React logo' />
+        <h1>Quiz React</h1>
+      </div>
       <ToggleSwitch />
     </header>
   );

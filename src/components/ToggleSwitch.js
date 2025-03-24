@@ -3,7 +3,6 @@ import { useDarkMode } from "../hooks/useDarkMode";
 
 export default function ToggleSwitch() {
     const { isDarkMode, toggleDarkMode } = useDarkMode();
-    // const [switchState, setSwitchState] = useState(true);
 
     function handleOnClick() {
         toggleDarkMode((prevState) => !prevState);
