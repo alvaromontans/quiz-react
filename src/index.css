@@ -1,8 +1,17 @@
-:root {
-  --color-darkest: #343a40;
-  --color-dark: #000000;
+:root.light-mode {
+  --color-terciary: #f8f9fa;
+  --color-secondary: #ffffff;
+  --color-medium: #495057;
+  --color-primary: #000000;
+  --color-theme: #0d6efd;
+  --color-accent: #ff6f00;
+}
+
+:root.dark-mode {
+  --color-terciary: #343a40;
+  --color-secondary: #000000;
   --color-medium: #ced4da;
-  --color-light: #ffffff;
+  --color-primary: #ffffff;
   --color-theme: #1098ad;
   --color-accent: #ffa94d;
 }
@@ -23,8 +32,8 @@ html {
 
 body {
   min-height: 100vh;
-  color: var(--color-light);
-  background-color: var(--color-dark);
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
   padding: 3.2rem;
 }
 
@@ -75,7 +84,7 @@ h1 {
     0 0 90px var(--color-theme),
     0 0 100px var(--color-theme),
     0 0 150px var(--color-theme);
-  background-color: var(--color-dark);
+  background-color: var(--color-secondary);
   /* Optional: Dark background to enhance neon effect */
   padding: 20px;
   /* Optional: Space around the text */
@@ -141,8 +150,8 @@ progress {
   font-family: inherit;
   color: inherit;
   font-size: 2rem;
-  border: 2px solid var(--color-dark);
-  background-color: var(--color-dark);
+  border: 2px solid var(--color-secondary);
+  background-color: var(--color-secondary);
   padding: 1.2rem 2.4rem;
   cursor: pointer;
   border-radius: 100px;
@@ -150,7 +159,7 @@ progress {
 }
 
 .btn:not([disabled]):hover {
-  background-color: var(--color-darkest);
+  background-color: var(--color-terciary);
 }
 
 .btn-option:not([disabled]):hover {
@@ -163,7 +172,7 @@ progress {
 
 .btn-ui {
   float: right;
-  border: 1px var(--color-light) solid;
+  border: 1px var(--color-primary) solid;
 }
 
 .options {
@@ -176,19 +185,19 @@ progress {
 .btn-option {
   width: 100%;
   text-align: left;
-  border: 1px var(--color-light) solid;
+  border: 1px var(--color-primary) solid;
 }
 
 .btn-option.correct {
   background-color: var(--color-theme);
   border: 2px solid var(--color-theme);
-  color: var(--color-light);
+  color: var(--color-primary);
 }
 
 .btn-option.wrong {
   background-color: var(--color-accent);
   border: 2px solid var(--color-accent);
-  color: var(--color-darkest);
+  color: var(--color-terciary);
 }
 
 .answer {
@@ -197,7 +206,7 @@ progress {
 
 .result {
   background-color: var(--color-theme);
-  color: var(--color-light);
+  color: var(--color-primary);
   border-radius: 100px;
   text-align: center;
   padding: 2rem 0;
@@ -232,7 +241,7 @@ progress {
   float: left;
   font-size: 1.8rem;
   color: var(--color-medium);
-  border: 2px solid var(--color-dark);
+  border: 2px solid var(--color-secondary);
   padding: 1.35rem 2.8rem;
   border-radius: 100px;
 }
@@ -267,19 +276,35 @@ progress {
   }
 }
 
-/* ********** */
-/* First counter example */
-.counter {
+.toggle-switch {
+  cursor: pointer;
+  width: 75px;
+  height: 37.5px;
+  background: var(--color-primary);
+  border-radius: 50px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 6rem;
+  justify-content: space-around;
+  position: relative;
+  transition: background 0.3s ease;
 }
 
-.counter * {
-  font-size: inherit;
-  padding: 0.8rem;
+.toggle-switch input {
+  display: none;
+}
+
+.slider {
+  content: "";
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 30px;
+  height: 30px;
+  background: var(--color-secondary);
+  border-radius: 50%;
+  transition: 0.3s ease;
+}
+
+.toggle-switch.on .slider {
+  left: 5%;
 }
