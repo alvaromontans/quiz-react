@@ -6,12 +6,28 @@ const DarkModeContext = createContext({
     toggleDarkMode: () => { },
 });
 
+/**
+ * Componente que proporciona el contexto de tema oscuro a los componentes hijos.
+ *
+ * @param {Object} props - Objeto con las propiedades del componente.
+ * @param {JSX.Element} props.children - Elementos JSX que se van a renderizar
+ * dentro del contexto.
+ * @returns {JSX.Element} Un JSX.Element que representa el contexto de tema
+ * oscuro.
+ */
 function DarkModeProvider({ children }) {
+    /**
+     * Estado que indica si el tema oscuro está activado o no.
+     */
     const [isDarkMode, setIsDarkMode] = useLocalStorageState(
         window.matchMedia("(prefers-color-scheme: dark)").matches,
         "isDarkMode"
     );
 
+    /**
+     * Efecto que cambia la clase del elemento raíz dependiendo del tema
+     * actual.
+     */
     useEffect(
         function () {
             if (isDarkMode) {
@@ -25,10 +41,12 @@ function DarkModeProvider({ children }) {
         [isDarkMode]
     );
 
+    /**
+     * Función que cambia el estado del tema oscuro.
+     */
     function toggleDarkMode() {
         setIsDarkMode((isDark) => !isDark);
     }
-
 
     return (
         <DarkModeContext.Provider value={{ isDarkMode, toggleDarkMode }}>

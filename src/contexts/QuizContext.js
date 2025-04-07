@@ -13,8 +13,22 @@ const initialState = {
 const SECS_PER_QUESTION = 30;
 
 
+/**
+ * Reducer para el estado del cuestionario.
+ *
+ * @param {Object} state - El estado actual del cuestionario.
+ * @param {Object} action - La acción que se debe realizar en el estado.
+ * @returns {Object} El estado resultante después de aplicar la acción.
+ */
 function reducer(state, action) {
     switch (action.type) {
+        /**
+         * Se ha recibido el cuestionario desde el servidor.
+         * Se actualiza el estado con la lista de preguntas y se
+         * cambia el estado a "ready".
+         *
+         * @param {Array} action.payload - El cuestionario recibido.
+         */
         case "dataReceived":
             return {
                 ...state,
@@ -22,12 +36,21 @@ function reducer(state, action) {
                 status: "ready"
             };
 
+        /**
+         * Ha fallado la recepción del cuestionario desde el servidor.
+         * Se cambia el estado a "error".
+         */
         case "dataFailed":
             return {
                 ...state,
                 status: "error"
             };
 
+        /**
+         * Se ha pulsado el botón de inicio.
+         * Se cambia el estado a "active" y se establece el
+         * tiempo límite para cada pregunta.
+         */
         case "start":
             return {
                 ...state,
@@ -35,6 +58,13 @@ function reducer(state, action) {
                 secondsLeft: state.questions.length * SECS_PER_QUESTION
             };
 
+        /**
+         * Se ha pulsado una respuesta para una pregunta.
+         * Se actualiza el estado con la respuesta y se
+         * actualiza el puntaje según sea correcta o no.
+         *
+         * @param {number} action.payload - La respuesta seleccionada.
+         */
         case "newAnswer":
             const question = state.questions.at(state.index);
 
@@ -45,6 +75,11 @@ function reducer(state, action) {
                     ? state.points + question.points : state.points
             };
 
+        /**
+         * Se ha pulsado el botón de siguiente pregunta.
+         * Se actualiza el estado con la siguiente pregunta y se
+         * establece la respuesta en null.
+         */
         case "nextQuestion":
             return {
                 ...state,
@@ -52,6 +87,11 @@ function reducer(state, action) {
                 answer: null
             };
 
+        /**
+         * Se ha terminado el cuestionario.
+         * Se cambia el estado a "finished" y se actualiza el
+         * puntaje máximo.
+         */
         case "finish":
             return {
                 ...state,
@@ -59,6 +99,11 @@ function reducer(state, action) {
                 highscore: state.points > state.highscore ? state.points : state.highscore
             };
 
+        /**
+         * Se ha pulsado el botón de reiniciar.
+         * Se establece el estado en su valor inicial y se
+         * guardan las preguntas en el estado.
+         */
         case "restart":
             return {
                 ...initialState,
@@ -66,6 +111,12 @@ function reducer(state, action) {
                 status: "ready"
             };
 
+        /**
+         * Se ha producido un tick en el temporizador.
+         * Se actualiza el estado con el tiempo límite restante
+         * y se cambia el estado a "finished" si se ha agotado
+         * el tiempo.
+         */
         case "tick":
             return {
                 ...state,
@@ -78,7 +129,29 @@ function reducer(state, action) {
     }
 }
 
+/**
+ * Proveedor del contexto del cuestionario.
+ *
+ * @param {Object} props - Props del componente.
+ * @param {JSX.Element} props.children - Elementos JSX que se renderizarán
+ *                                      dentro del contexto.
+ * @returns {JSX.Element} Un JSX.Element que contiene el contexto del
+ *                        cuestionario.
+ */
 function QuizProvider({ children }) {
+    /**
+     * Estado actual del cuestionario y su dispatcher.
+     *
+     * @typedef {Object} State
+     * @property {Array} questions - Preguntas del cuestionario.
+     * @property {string} status - Estado del cuestionario.
+     * @property {number} index - Índice de la pregunta actual.
+     * @property {number} answer - Respuesta seleccionada para la pregunta actual.
+     * @property {number} points - Puntaje actual del cuestionario.
+     * @property {number} highscore - Puntaje máximo alcanzado.
+     * @property {number} secondsLeft - Tiempo límite restante para la pregunta actual.
+     * @property {function} dispatch - Función para cambiar el estado del cuestionario.
+     */
     const [{ questions, status, index, answer, points, highscore, secondsLeft }, dispatch]
         = useReducer(reducer, initialState);
 

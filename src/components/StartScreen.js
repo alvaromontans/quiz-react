@@ -1,5 +1,12 @@
 import { useQuiz } from "../hooks/useQuiz";
 
+/**
+ * Componente que muestra la pantalla de inicio del cuestionario.
+ *
+ * @param {Object} props - Objeto con las propiedades del componente.
+ * @param {number} props.numQuestions - Número de preguntas en el cuestionario.
+ * @returns {JSX.Element} Un JSX.Element que representa la pantalla de inicio.
+ */
 function StartScreen({ numQuestions }) {
     const { dispatch } = useQuiz();
 

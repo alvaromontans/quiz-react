@@ -11,6 +11,12 @@ import Footer from "./Footer";
 import Timer from "./Timer";
 import { useQuiz } from "../hooks/useQuiz";
 
+/**
+ * Componente principal de la aplicación. Maneja el estado global
+ * y renderiza las pantallas correspondientes segín el estado.
+ *
+ * @returns {JSX.Element} Un JSX.Element que representa la aplicación.
+ */
 function App() {
   const { questions, status } = useQuiz();
 
