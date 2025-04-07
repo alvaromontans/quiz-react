@@ -19,6 +19,7 @@ import { useQuiz } from "../hooks/useQuiz";
  */
 function App() {
   const { questions, status } = useQuiz();
+  console.log('questions:', questions);
 
   const numQuestions = questions.length;
   const maxPoints = questions.reduce((prev, cur) => prev + cur.points, 0);

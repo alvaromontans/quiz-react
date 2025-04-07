@@ -156,9 +156,12 @@ function QuizProvider({ children }) {
         = useReducer(reducer, initialState);
 
     useEffect(function () {
-        fetch("http://localhost:8000/questions")
+        fetch("https://api.jsonbin.io/v3/b/67f40a228960c979a5800413")
             .then(res => res.json())
-            .then(data => dispatch({ type: "dataReceived", payload: data }))
+            .then(data => {
+                const questions = data.record.questions;
+                dispatch({ type: "dataReceived", payload: questions });
+            })
             .catch(() => dispatch({ type: "dataFailed" }));
     }, []);
 
