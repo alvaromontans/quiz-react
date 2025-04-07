@@ -12,10 +12,6 @@ function DarkModeProvider({ children }) {
         "isDarkMode"
     );
 
-    function toggleDarkMode() {
-        setIsDarkMode((isDark) => !isDark);
-    }
-
     useEffect(
         function () {
             if (isDarkMode) {
@@ -28,6 +24,11 @@ function DarkModeProvider({ children }) {
         },
         [isDarkMode]
     );
+
+    function toggleDarkMode() {
+        setIsDarkMode((isDark) => !isDark);
+    }
+
 
     return (
         <DarkModeContext.Provider value={{ isDarkMode, toggleDarkMode }}>
